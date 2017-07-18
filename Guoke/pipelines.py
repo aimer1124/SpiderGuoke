@@ -16,8 +16,12 @@ class GuokePipeline(object):
         self.post = self.db[settings['MONGO_COLL']]
     def process_item(self, item, spider):
         postItem = dict(item)
-        self.post.insert(postItem)
+        if self.post.find({'link': postItem['link']}).count() > 0:
+            self.post.find_one_and_update({'link': postItem['link']}, {'$set': postItem})
+        else:
+            self.post.insert(postItem)
         return item
+
 class JsonWriterPipeline(object):
     def __init__(self):
         self.file = open('guoke.json', 'w', encoding='utf-8')

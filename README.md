@@ -12,6 +12,8 @@ Use [scrapy](https://scrapy.org/) to crawl [Guoke](http://www.guokr.com/).
 - DB: Mongo
 - spider: scrapy
 
+
+
 ## Day 1
 
 ### Learn from [Scrapy爬虫：果壳热门和精彩问答信息爬取](http://bulolo.cn/2017/06/20/scrapy3/#more)
