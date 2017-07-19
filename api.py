@@ -19,7 +19,7 @@ TODOS = {
 
 def abort_if_todo_doesnt_exist(todo_id):
     if todo_id not in TODOS:
-        abort(404, message="Todo {} doesn't exist".format(todo_id))
+        abort(404, message="Todo {} doesn't exist.".format(todo_id))
 
 parser = reqparse.RequestParser()
 parser.add_argument('task')
@@ -29,11 +29,12 @@ parser.add_argument('task')
 
 class Questions(Resource):
     def get(self):
-        questions = mongo.db.Guoke_info.find({'answer': '3'})
+        count = mongo.db.Guoke_info.find().count()
+        topTwentyFocus = mongo.db.Guoke_info.find().sort('Focus', -1).limit(20)
         listQuestion = []
-        for question in questions:
-            listQuestion.append({'title': question['title']})
-        return jsonify(listQuestion)
+        for question in topTwentyFocus:
+            listQuestion.append({'title': question['title'], 'Focus': question['Focus']})
+        return jsonify(listQuestion, count)
 
 # Todo
 # shows a single todo item and lets you delete a todo item

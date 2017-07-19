@@ -11,10 +11,11 @@ Use [scrapy](https://scrapy.org/) to crawl [Guoke](http://www.guokr.com/).
 
 - DB: Mongo
 - spider: scrapy
+- Back: Flask
 
 ## Day 2
 
-### 引用Flask后端框架
+### 引入Flask后端框架
 
 - 在`api.py`中添加
 
