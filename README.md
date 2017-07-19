@@ -12,7 +12,32 @@ Use [scrapy](https://scrapy.org/) to crawl [Guoke](http://www.guokr.com/).
 - DB: Mongo
 - spider: scrapy
 
+## Day 2
 
+### 引用Flask后端框架
+
+- 在`api.py`中添加
+
+```
+class Questions(Resource):
+    def get(self):
+        questions = mongo.db.Guoke_info.find({'answer': '3'})
+        listQuestion = []
+        for question in questions:
+            listQuestion.append({'title': question['title']})
+        return jsonify(listQuestion)
+```
+
+- 启动Flask: python api.py
+
+```
+127.0.0.1 - - [19/Jul/2017 11:39:41] "GET /questions HTTP/1.1" 200 -
+ * Detected change in '/Users/yjshi/Documents/ENV3.6/Guoke/api.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 558-247-970
+
+```
 
 ## Day 1
 
