@@ -33,7 +33,7 @@ class Questions(Resource):
         topTwentyFocus = mongo.db.Guoke_info.find().sort('Focus', -1).limit(20)
         listQuestion = []
         for question in topTwentyFocus:
-            listQuestion.append({'title': question['title'], 'Focus': question['Focus']})
+            listQuestion.append({'title': question['title'], 'Focus': question['Focus'], 'answer': question['answer'], 'link': question['link'], 'content': question['content']})
         return jsonify(listQuestion, count)
 
 # Todo

@@ -40,6 +40,12 @@ class Questions(Resource):
 
 ```
 
+### 使用排序、limit获取已有数据的前20条
+
+```
+mongo.db.Guoke_info.find().sort('Focus', -1).limit(20)
+```
+
 ## Day 1
 
 ### Learn from [Scrapy爬虫：果壳热门和精彩问答信息爬取](http://bulolo.cn/2017/06/20/scrapy3/#more)
