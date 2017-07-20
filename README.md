@@ -13,6 +13,14 @@ Use [scrapy](https://scrapy.org/) to crawl [Guoke](http://www.guokr.com/).
 - spider: scrapy
 - Back: Flask
 
+## Day 3
+
+### 在保存问题时，同时保存问题的类型：热门问答  精彩回答
+
+```
+item['type'] = response.url.split('/')[4]
+```
+
 ## Day 2
 
 ### 引入Flask后端框架

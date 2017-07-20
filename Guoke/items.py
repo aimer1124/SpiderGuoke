@@ -16,3 +16,4 @@ class GuokeItem(scrapy.Item):
     answer = scrapy.Field()
     link = scrapy.Field()
     content = scrapy.Field()
+    type = scrapy.Field()
