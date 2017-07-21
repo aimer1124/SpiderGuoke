@@ -13,11 +13,21 @@ Use [scrapy](https://scrapy.org/) to crawl [Guoke](http://www.guokr.com/).
 - spider: scrapy
 - Back: Flask
 
+## Day 4
+
+### 单元测试框架
+
+- 选择：`pytest`
+- 原因：其它各个框架的最后更新时间基本都在2015、2016年。维护更新较慢
+    - [https://docs.pytest.org/en/latest/changelog.html](https://docs.pytest.org/en/latest/changelog.html)
+    - [https://pypi.python.org/pypi/nose/1.3.7](https://pypi.python.org/pypi/nose/1.3.7)
+    - [https://pypi.python.org/pypi/unittest2](https://pypi.python.org/pypi/unittest2)
+
 ## Day 3
 
 ### 在保存问题时，同时保存问题的类型：热门问答  精彩回答
 
-```
+```python
 item['type'] = response.url.split('/')[4]
 ```
 
@@ -27,7 +37,7 @@ item['type'] = response.url.split('/')[4]
 
 - 在`api.py`中添加
 
-```
+```python
 class Questions(Resource):
     def get(self):
         questions = mongo.db.Guoke_info.find({'answer': '3'})
@@ -39,7 +49,7 @@ class Questions(Resource):
 
 - 启动Flask: python api.py
 
-```
+```log
 127.0.0.1 - - [19/Jul/2017 11:39:41] "GET /questions HTTP/1.1" 200 -
  * Detected change in '/Users/yjshi/Documents/ENV3.6/Guoke/api.py', reloading
  * Restarting with stat
@@ -50,7 +60,7 @@ class Questions(Resource):
 
 ### 使用排序、limit获取已有数据的前20条
 
-```
+```python
 mongo.db.Guoke_info.find().sort('Focus', -1).limit(20)
 ```
 
