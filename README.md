@@ -23,6 +23,8 @@ Use [scrapy](https://scrapy.org/) to crawl [Guoke](http://www.guokr.com/).
     - [https://pypi.python.org/pypi/nose/1.3.7](https://pypi.python.org/pypi/nose/1.3.7)
     - [https://pypi.python.org/pypi/unittest2](https://pypi.python.org/pypi/unittest2)
 
+### 添加`requirements.txt`文件
+
 ## Day 3
 
 ### 在保存问题时，同时保存问题的类型：热门问答  精彩回答
